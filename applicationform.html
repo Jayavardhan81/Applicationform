@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <!-- nav bar -->
+ <div id="links">
+    <div><a href="index.html">Home</a></div>
+    <div><a href="applicationform.html">Applied Jobs</a></div>
+    <div><a href="">Bookmarks</a></div>
+ </div>
+ <main>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Job Applied</th>
+                <th>Expected Salary</th>
+                <th>Resume</th>
+                <th>Add to BookMark</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- data will come from js -->
+        </tbody>
+    </table>
+ </main>
+</body>
+</html>
+<script>
+    let jobArr=JSON.parse(localStorage.getItem("jobList"));
+    let bookMarkArr=JSON.parse(localStorage.getItem("bookmarks"))||[];
+
+    jobArr.forEach(function(elem){
+        let tr=document.createElement("tr");
+
+        // tr.innerText=elem.PersonName;
+
+
+        let td1=document.createElement("td");
+        td1.innerText=elem.PersonName;
+        let td2=document.createElement("td");
+        td2.innerText=elem.PersonEmail;
+        let td3=document.createElement("td");
+        td3.innerText=elem.PersonRole;
+        let td4=document.createElement("td");
+        td4.innerText=elem.PersonSalary;
+        let td5=document.createElement("td");
+        td5.innerText=elem.PersonResume;
+        let td6=document.createElement("td");
+        td6.innerText="Bookmark";
+        td6.addEventListener("click",function(){
+            bookMarkFun(elem);
+        });
+
+        tr.append(td1,td2,td3,td4,td5,td6);
+        document.querySelector("tbody").append(tr);
+    }); 
+    </script>

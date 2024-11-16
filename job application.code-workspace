@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Downloads/Job application-zip"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Job application-zip"
+	}
+}
